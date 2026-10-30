@@ -6,7 +6,7 @@
 #include "rect_map_movable_adapter.hpp"
 #include "speed.hpp"
 
-namespace biv {
+namespace sea {
 	class Money : public RectMapMovableAdapter, public Movable, public Collisionable {
 		public:
 			Money(const Coord& top_left, const int width, const int height);

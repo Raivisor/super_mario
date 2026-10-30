@@ -1,6 +1,6 @@
 #pragma once
 
-namespace biv {
+namespace sea {
 	class MapMovable {
 		public: 
 			static const int MAP_STEP = 1;

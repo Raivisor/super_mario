@@ -1,6 +1,6 @@
 #include "game_map.hpp"
 
-using biv::GameMap;
+using sea::GameMap;
 
 GameMap::GameMap(const int height, const int width) 
 	: height(height), width(width) {}

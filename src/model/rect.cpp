@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-using biv::Rect;
+using sea::Rect;
 
 Rect::Rect(const Coord& top_left, const int width, const int height)
 	: top_left(top_left), width(width), height(height) {}

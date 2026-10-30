@@ -3,7 +3,7 @@
 #include "rect.hpp"
 #include "speed.hpp"
 
-namespace biv {
+namespace sea {
 	class Collisionable {
 		protected:
 			bool is_active_ = true;

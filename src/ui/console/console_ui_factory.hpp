@@ -9,7 +9,7 @@
 #include "console_ship.hpp"
 #include "ui_factory.hpp"
 
-namespace biv {
+namespace sea {
 	class ConsoleUIFactory : public UIFactory {
 		private:
 			ConsoleGameMap* game_map = nullptr;

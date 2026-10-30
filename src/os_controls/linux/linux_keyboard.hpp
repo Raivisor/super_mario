@@ -2,7 +2,7 @@
 
 #include "keyboard.hpp"
 
-namespace biv {
+namespace sea {
 	class LinuxKeyboard : public KeyBoard {
 		private:
 			UserInput prev_input;

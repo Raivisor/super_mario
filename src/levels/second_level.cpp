@@ -1,6 +1,6 @@
 #include "second_level.hpp"
 
-using biv::SecondLevel;
+using sea::SecondLevel;
 
 SecondLevel::SecondLevel(UIFactory* ui_factory) : GameLevel(ui_factory) {
 	init_data();
@@ -10,7 +10,7 @@ bool SecondLevel::is_final() const noexcept {
 	return true;
 }
 
-biv::GameLevel* SecondLevel::get_next() {
+sea::GameLevel* SecondLevel::get_next() {
 	return next;
 }
 

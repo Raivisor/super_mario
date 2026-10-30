@@ -9,7 +9,7 @@
 #include "game_map.hpp"
 #include "mario.hpp"
 
-namespace biv {
+namespace sea {
 	class UIFactory {
 		protected:
 			Game* game = nullptr;

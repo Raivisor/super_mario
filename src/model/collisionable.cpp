@@ -1,6 +1,6 @@
 #include "collisionable.hpp"
 
-using biv::Collisionable;
+using sea::Collisionable;
 
 bool Collisionable::has_collision(Rect* obj) const noexcept {
 	Rect myself = get_rect();

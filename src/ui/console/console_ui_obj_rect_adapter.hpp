@@ -3,7 +3,7 @@
 #include "console_ui_obj.hpp"
 #include "rect.hpp"
 
-namespace biv {
+namespace sea {
 	class ConsoleUIObjectRectAdapter : virtual public Rect, public ConsoleUIObject {
 		public:
 			ConsoleUIObjectRectAdapter() = default;

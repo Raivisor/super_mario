@@ -1,6 +1,6 @@
 #include "console_box.hpp"
 
-using biv::ConsoleBox;
+using sea::ConsoleBox;
 
 ConsoleBox::ConsoleBox(const Coord& top_left, const int width, const int height) 
 	: Box(top_left, width, height) {}

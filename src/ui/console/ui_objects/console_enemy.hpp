@@ -7,7 +7,7 @@
 #include "console_ui_obj_rect_adapter.hpp"
 #include "enemy.hpp"
 
-namespace biv {
+namespace sea {
 	class ConsoleEnemy : public Enemy, public ConsoleUIObjectRectAdapter {
 		public:
 			ConsoleEnemy(const Coord& top_left, const int width, const int height);

@@ -3,7 +3,7 @@
 #include "console_ui_obj_rect_adapter.hpp"
 #include "full_box.hpp"
 
-namespace biv {
+namespace sea {
 	class ConsoleFullBox : public FullBox, public ConsoleUIObjectRectAdapter {
 		public:
 			ConsoleFullBox(

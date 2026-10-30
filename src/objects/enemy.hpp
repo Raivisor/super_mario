@@ -11,7 +11,7 @@
 #include "rect_map_movable_adapter.hpp"
 #include "speed.hpp"
 
-namespace biv {
+namespace sea {
 	class Enemy : public RectMapMovableAdapter, public Movable, public Collisionable {
 		public:
 			Enemy(const Coord& top_left, const int width, const int height);

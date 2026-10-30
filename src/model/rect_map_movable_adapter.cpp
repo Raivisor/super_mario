@@ -1,6 +1,6 @@
 #include "rect_map_movable_adapter.hpp"
 
-using biv::RectMapMovableAdapter;
+using sea::RectMapMovableAdapter;
 
 RectMapMovableAdapter::RectMapMovableAdapter(
 	const Coord& top_left, const int width, const int height) {

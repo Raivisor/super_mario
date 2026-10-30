@@ -5,7 +5,7 @@
 #include "game_map.hpp"
 #include "console_ui_obj.hpp"
 
-namespace biv {
+namespace sea {
 	class ConsoleGameMap : public GameMap {
 		private:
 			char** map;

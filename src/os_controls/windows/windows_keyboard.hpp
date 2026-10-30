@@ -2,7 +2,7 @@
 
 #include "keyboard.hpp"
 
-namespace biv {
+namespace sea {
 	class WindowsKeyBoard : public KeyBoard {
 		public:
 			UserInput get_user_input() override;

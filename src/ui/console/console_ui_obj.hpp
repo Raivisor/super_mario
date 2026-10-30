@@ -2,7 +2,7 @@
 
 #include "rect.hpp"
 
-namespace biv {
+namespace sea {
 	class ConsoleUIObject {
 		public:
 			virtual int get_bottom() const noexcept = 0;
