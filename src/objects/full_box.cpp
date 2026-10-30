@@ -1,6 +1,6 @@
 #include "full_box.hpp"
 
-using biv::FullBox;
+using sea::FullBox;
 
 FullBox::FullBox(
 	const Coord& top_left, 
@@ -8,11 +8,11 @@ FullBox::FullBox(
 	UIFactory* ui_factory
 ) : Box(top_left, width, height), ui_factory(ui_factory) {}
 
-biv::Rect FullBox::get_rect() const noexcept {
+sea::Rect FullBox::get_rect() const noexcept {
 	return {top_left, width, height};
 }
 
-biv::Speed FullBox::get_speed() const noexcept {
+sea::Speed FullBox::get_speed() const noexcept {
 	return {0, 0};
 }
 

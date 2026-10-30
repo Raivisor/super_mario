@@ -1,6 +1,6 @@
 #pragma once
 
-namespace biv {
+namespace sea {
 	struct Speed {
 		float v;
 		float h;

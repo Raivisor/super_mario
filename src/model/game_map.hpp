@@ -1,6 +1,6 @@
 #pragma once
 
-namespace biv {
+namespace sea {
 	class GameMap {
 		protected:
 			const int height;

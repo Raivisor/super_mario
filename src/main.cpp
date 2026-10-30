@@ -47,50 +47,50 @@ int main() {
 	const int map_weight = 200;
 	auto frame_delay = std::chrono::milliseconds(0);
 	
-	biv::OSControlSettings* control_settings = nullptr;
-	biv::KeyBoard* keyboard = nullptr;
+	sea::OSControlSettings* control_settings = nullptr;
+	sea::KeyBoard* keyboard = nullptr;
 	#ifdef WINDOWS_CONSOLE
-		control_settings = new biv::WindowsControlSettings();
-		keyboard = new biv::WindowsKeyBoard();
+		control_settings = new sea::WindowsControlSettings();
+		keyboard = new sea::WindowsKeyBoard();
 		frame_delay = std::chrono::milliseconds(10);
 	#elif defined(LINUX_CONSOLE)
-		control_settings = new biv::LinuxControlSettings(map_height, map_weight);
-		keyboard = new biv::LinuxKeyboard();
+		control_settings = new sea::LinuxControlSettings(map_height, map_weight);
+		keyboard = new sea::LinuxKeyboard();
 		frame_delay = std::chrono::milliseconds(50);
 	#endif
 	
 	control_settings->init();
 	keyboard->on();
 	
-	biv::Game game;
-	biv::UIFactory* ui_factory = new biv::ConsoleUIFactory(&game);
-	biv::GameMap* game_map = ui_factory->get_game_map(map_height, map_weight);
-	biv::GameLevel* game_level = new biv::FirstLevel(ui_factory);
-	biv::Mario* mario = ui_factory->get_mario();
+	sea::Game game;
+	sea::UIFactory* ui_factory = new sea::ConsoleUIFactory(&game);
+	sea::GameMap* game_map = ui_factory->get_game_map(map_height, map_weight);
+	sea::GameLevel* game_level = new sea::FirstLevel(ui_factory);
+	sea::Mario* mario = ui_factory->get_mario();
 	
-	biv::UserInput user_input;
+	sea::UserInput user_input;
 	do {
 		// 2. Получение пользовательского ввода	
 		user_input = keyboard->get_user_input();
 		switch (user_input) {
-			case biv::UserInput::MAP_LEFT:
+			case sea::UserInput::MAP_LEFT:
 				mario->move_map_left();
 				if (!game.check_static_collisions(mario)) {
 					game.move_map_left();
 				}
 				mario->move_map_right();
 				break;
-			case biv::UserInput::MAP_RIGHT:
+			case sea::UserInput::MAP_RIGHT:
 				mario->move_map_right();
 				if (!game.check_static_collisions(mario)) {
 					game.move_map_right();
 				}
 				mario->move_map_left();
 				break;
-			case biv::UserInput::MARIO_JUMP:
+			case sea::UserInput::MARIO_JUMP:
 				mario->jump();
 				break;
-			case biv::UserInput::EXIT:
+			case sea::UserInput::EXIT:
 				game.finish();
 				break;
 		}

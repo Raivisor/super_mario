@@ -1,6 +1,6 @@
 #pragma once
 
-namespace biv {
+namespace sea {
 	struct Coord {
 		float x;
 		float y;

@@ -1,6 +1,6 @@
 #include "console_ui_obj_rect_adapter.hpp"
 
-using biv::ConsoleUIObjectRectAdapter;
+using sea::ConsoleUIObjectRectAdapter;
 
 ConsoleUIObjectRectAdapter::ConsoleUIObjectRectAdapter(
 	const Coord& top_left, const int width, const int height

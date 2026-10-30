@@ -12,7 +12,7 @@
 #include "movable.hpp"
 #include "rect.hpp"
 
-namespace biv {
+namespace sea {
 	class Game {
 		private:
 			std::vector<MapMovable*> map_movable_objs;

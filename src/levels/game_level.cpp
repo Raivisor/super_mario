@@ -1,6 +1,6 @@
 #include "game_level.hpp"
 
-using biv::GameLevel;
+using sea::GameLevel;
 
 GameLevel::GameLevel(UIFactory* ui_factory) : ui_factory(ui_factory) {}
 

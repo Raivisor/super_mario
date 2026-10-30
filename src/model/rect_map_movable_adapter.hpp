@@ -11,7 +11,7 @@
 #include "map_movable.hpp"
 #include "rect.hpp"
 
-namespace biv {
+namespace sea {
 	class RectMapMovableAdapter : virtual public Rect, public MapMovable {
 		public:
 			RectMapMovableAdapter(const Coord& top_left, const int width, const int height);

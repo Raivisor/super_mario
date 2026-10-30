@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-using biv::Logger;
+using sea::Logger;
 
 Logger::Logger() {
 	log_file.open("super_mario_log.log", std::ios::out | std::ios::trunc);

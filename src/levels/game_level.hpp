@@ -11,7 +11,7 @@
 
 #include "ui_factory.hpp"
 
-namespace biv {
+namespace sea {
 	class GameLevel {
 		protected:
 			UIFactory* ui_factory = nullptr;

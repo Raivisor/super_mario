@@ -5,7 +5,7 @@
 #include "rect.hpp"
 #include "speed.hpp"
 
-namespace biv {
+namespace sea {
 	class Mario : public Movable, public Collisionable {
 		public:
 			Mario(const Coord& top_left, const int width, const int height);

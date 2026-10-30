@@ -10,12 +10,12 @@
 #include <iostream>
 #include <sstream>
 
-std::string biv::format_string(const std::string& format) {
+std::string sea::format_string(const std::string& format) {
 	return format;
 }
 
 template<typename T, typename... Args>
-std::string biv::format_string(const std::string& format, T first, Args... rest) {
+std::string sea::format_string(const std::string& format, T first, Args... rest) {
 	std::ostringstream oss;
 	oss << first;
 	std::string first_str = oss.str();

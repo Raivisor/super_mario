@@ -2,7 +2,7 @@
 
 #include <ncurses.h>
 
-using biv::LinuxControlSettings;
+using sea::LinuxControlSettings;
 
 LinuxControlSettings::LinuxControlSettings(const int height, const int width)
 : height(height), width(width) {}

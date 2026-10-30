@@ -2,7 +2,7 @@
 
 #include "game_level.hpp"
 
-namespace biv {
+namespace sea {
 	class SecondLevel : public GameLevel {
 		public:
 			SecondLevel(UIFactory* ui_factory);

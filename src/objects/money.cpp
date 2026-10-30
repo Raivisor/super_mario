@@ -2,7 +2,7 @@
 
 #include "map_movable.hpp"
 
-using biv::Money;
+using sea::Money;
 
 Money::Money(const Coord& top_left, const int width, const int height) 
 	: RectMapMovableAdapter(top_left, width, height) {
@@ -10,11 +10,11 @@ Money::Money(const Coord& top_left, const int width, const int height)
 	hspeed = 0.2;
 }
 
-biv::Rect Money::get_rect() const noexcept {
+sea::Rect Money::get_rect() const noexcept {
 	return {top_left, width, height};
 }
 
-biv::Speed Money::get_speed() const noexcept {
+sea::Speed Money::get_speed() const noexcept {
 	return {vspeed, hspeed};
 }
 

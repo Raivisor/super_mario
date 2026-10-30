@@ -7,5 +7,5 @@
 #include "format.hpp"
 #include "format.cpp"
 
-template std::string biv::format_string<int>(const std::string&, int);
-template std::string biv::format_string<std::string>(const std::string&, std::string);
+template std::string sea::format_string<int>(const std::string&, int);
+template std::string sea::format_string<std::string>(const std::string&, std::string);
