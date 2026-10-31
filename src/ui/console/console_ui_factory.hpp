@@ -11,6 +11,7 @@
 #include "console_mario.hpp"
 #include "console_money.hpp"
 #include "console_ship.hpp"
+#include "console_moving_platform.hpp"
 #include "ui_factory.hpp"
 
 namespace sea {
@@ -24,6 +25,7 @@ namespace sea {
 			std::vector<ConsoleEnemy*> enemies;
 			std::vector<std::unique_ptr<ConsoleFlyingEnemy>> flying_enemies;
 			std::vector<std::unique_ptr<ConsoleJumpingEnemy>> jumping_enemies;
+			std::vector<std::unique_ptr<ConsoleMovingPlatform>> moving_platforms;
 			std::vector<ConsoleMoney*> moneys;
 
 		public:
@@ -54,6 +56,10 @@ namespace sea {
 			) override;
 			void create_ship(
 				const Coord& top_left, const int width, const int height
+			) override;
+			void create_moving_platform(
+				const Coord& top_left, const int width, const int height,
+				const float travel_distance, const float speed = 0.2f
 			) override;
 			GameMap* get_game_map(const int height, const int width) override;
 			Mario* get_mario() override;
