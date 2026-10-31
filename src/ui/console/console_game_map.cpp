@@ -58,6 +58,9 @@ void ConsoleGameMap::refresh() noexcept {
 	clear();
 	
 	for (ConsoleUIObject* obj: objs) {
+		if (!obj->is_visible()) {
+			continue;
+		}
 		int left = obj->get_left();
 		int top = obj->get_top();
 		int right = obj->get_right();
