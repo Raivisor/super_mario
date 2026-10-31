@@ -5,6 +5,7 @@
 #include "console_box.hpp"
 #include "console_enemy.hpp"
 #include "console_flying_enemy.hpp"
+#include "console_jumping_enemy.hpp"
 #include "console_full_box.hpp"
 #include "console_game_map.hpp"
 #include "console_mario.hpp"
@@ -22,6 +23,7 @@ namespace sea {
 			ConsoleMario* mario = nullptr;
 			std::vector<ConsoleEnemy*> enemies;
 			std::vector<std::unique_ptr<ConsoleFlyingEnemy>> flying_enemies;
+			std::vector<std::unique_ptr<ConsoleJumpingEnemy>> jumping_enemies;
 			std::vector<ConsoleMoney*> moneys;
 
 		public:
@@ -37,6 +39,9 @@ namespace sea {
 			void create_flying_enemy(
 				const Coord& top_left, const int width, const int height,
 				const float patrol_distance, const float speed = 0.2f
+			) override;
+			void create_jumping_enemy(
+				const Coord& top_left, const int width, const int height
 			) override;
 			void create_full_box(
 				const Coord& top_left, const int width, const int height

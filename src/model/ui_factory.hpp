@@ -26,6 +26,8 @@ namespace sea {
 			virtual void create_flying_enemy(
 				const Coord& top_left, const int width, const int height,
 				const float patrol_distance, const float speed = 0.2f) = 0;
+			virtual void create_jumping_enemy(
+				const Coord& top_left, const int width, const int height) = 0;
 			virtual void create_full_box(
 				const Coord& top_left, const int width, const int height) = 0;
 			virtual void create_mario(
