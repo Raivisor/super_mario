@@ -8,6 +8,7 @@ void ConsoleUIFactory::clear_data() {
 	game->remove_objs();
 	game_map->remove_objs();
 	flying_enemies.clear();
+	jumping_enemies.clear();
 	delete mario;
 	mario = nullptr;
 	boxes.clear();
@@ -45,6 +46,17 @@ void ConsoleUIFactory::create_flying_enemy(
 	flying_enemies.emplace_back(new ConsoleFlyingEnemy(
 		top_left, width, height, patrol_distance, speed));
 	ConsoleFlyingEnemy* enemy = flying_enemies.back().get();
+	game->add_map_movable(enemy);
+	game->add_movable(enemy);
+	game->add_collisionable(enemy);
+	game_map->add_obj(enemy);
+}
+
+void ConsoleUIFactory::create_jumping_enemy(
+	const Coord& top_left, const int width, const int height
+) {
+	jumping_enemies.emplace_back(new ConsoleJumpingEnemy(top_left, width, height));
+	ConsoleJumpingEnemy* enemy = jumping_enemies.back().get();
 	game->add_map_movable(enemy);
 	game->add_movable(enemy);
 	game->add_collisionable(enemy);
