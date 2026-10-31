@@ -10,6 +10,7 @@
 #include "map_movable.hpp"
 #include "mario.hpp"
 #include "movable.hpp"
+#include "moving_platform.hpp"
 #include "rect.hpp"
 
 namespace sea {
@@ -19,6 +20,7 @@ namespace sea {
 			std::vector<Rect*> static_objs;
 			std::vector<Collisionable*> collisionable_objs;
 			std::vector<Movable*> movable_objs;
+			std::vector<MovingPlatform*> moving_platforms;
 			
 			Mario* mario = nullptr;
 			
@@ -32,6 +34,7 @@ namespace sea {
 			void add_map_movable(MapMovable*);
 			void add_mario(Mario*);
 			void add_movable(Movable*);
+			void add_moving_platform(MovingPlatform*);
 			void add_static_obj(Rect*);
 			
 			void check_horizontally_static_collisions() noexcept;
@@ -48,6 +51,7 @@ namespace sea {
 			void move_map_right() noexcept;
 			void move_objs_horizontally() noexcept;
 			void move_objs_vertically() noexcept;
+			void update_moving_platforms() noexcept;
 			
 			void remove_collisionable(Collisionable*);
 			void remove_map_movable(MapMovable*);

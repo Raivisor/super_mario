@@ -26,6 +26,10 @@ void Game::add_static_obj(Rect* obj) {
 	static_objs.push_back(obj);
 }
 
+void Game::add_moving_platform(MovingPlatform* obj) {
+	moving_platforms.push_back(obj);
+}
+
 void Game::check_horizontally_static_collisions() noexcept {
 	for (Collisionable* obj: collisionable_objs) {
 		for (Rect* static_obj: static_objs) {
@@ -70,8 +74,20 @@ void Game::check_vertically_static_collisions() noexcept {
 	
 	for (Collisionable* obj: collisionable_objs) {
 		for (Rect* static_obj: static_objs) {
-			if (obj->has_collision(static_obj)) {
+			const bool landing_on_platform = obj == mario && mario->get_vspeed() > 0
+				&& mario->get_y() + mario->get_height() - mario->get_vspeed()
+					<= static_obj->get_top() + 0.5f
+				&& mario->get_y() + mario->get_height() >= static_obj->get_top()
+				&& mario->get_right() > static_obj->get_left()
+				&& mario->get_left() < static_obj->get_right()
+				&& std::find(moving_platforms.begin(), moving_platforms.end(), static_obj)
+					!= moving_platforms.end();
+			if (obj->has_collision(static_obj) || landing_on_platform) {
 				obj->process_vertical_static_collision(static_obj);
+				if (landing_on_platform) {
+					mario->move_vertical_offset(static_obj->get_top()
+						- mario->get_height() - mario->get_y());
+				}
 				break;
 			}
 		}
@@ -114,6 +130,43 @@ void Game::move_objs_vertically() noexcept {
 	}
 }
 
+void Game::update_moving_platforms() noexcept {
+	MovingPlatform* carrier = nullptr;
+	if (mario && mario->is_active() && mario->get_vspeed() == 0) {
+		for (MovingPlatform* platform: moving_platforms) {
+			if (mario->get_bottom() == platform->get_top()
+				&& mario->get_right() > platform->get_left()
+				&& mario->get_left() < platform->get_right()) {
+				carrier = platform;
+				break;
+			}
+		}
+	}
+	for (MovingPlatform* platform: moving_platforms) {
+		const float previous_x = platform->get_x();
+		platform->move_horizontally();
+		if (platform != carrier) {
+			continue;
+		}
+		float offset = platform->get_x() - previous_x;
+		const float mario_right = mario->get_x() + (mario->get_right() - mario->get_left());
+		for (Rect* obstacle: static_objs) {
+			if (obstacle == platform || mario->get_y() >= obstacle->get_bottom()
+				|| mario->get_y() + mario->get_height() <= obstacle->get_top()) {
+				continue;
+			}
+			if (offset > 0 && obstacle->get_right() > mario->get_x()) {
+				offset = std::min(offset, std::max(0.0f,
+					obstacle->get_left() - mario_right));
+			} else if (offset < 0 && obstacle->get_left() < mario_right) {
+				offset = std::max(offset, std::min(0.0f,
+					obstacle->get_right() - mario->get_x()));
+			}
+		}
+		mario->move_horizontal_offset(offset);
+	}
+}
+
 void Game::remove_collisionable(Collisionable* obj) {
 	remove_obj(collisionable_objs, obj);
 }
@@ -135,6 +188,7 @@ void Game::remove_objs() {
 	map_movable_objs.clear();
 	movable_objs.clear();
 	static_objs.clear();
+	moving_platforms.clear();
 	remove_mario();
 }
 

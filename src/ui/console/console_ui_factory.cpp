@@ -9,6 +9,7 @@ void ConsoleUIFactory::clear_data() {
 	game_map->remove_objs();
 	flying_enemies.clear();
 	jumping_enemies.clear();
+	moving_platforms.clear();
 	delete mario;
 	mario = nullptr;
 	boxes.clear();
@@ -110,6 +111,19 @@ void ConsoleUIFactory::create_ship(
 	game->add_map_movable(ship);
 	game->add_static_obj(ship);
 	game_map->add_obj(ship);
+}
+
+void ConsoleUIFactory::create_moving_platform(
+	const Coord& top_left, const int width, const int height,
+	const float travel_distance, const float speed
+) {
+	moving_platforms.emplace_back(new ConsoleMovingPlatform(
+		top_left, width, height, travel_distance, speed));
+	ConsoleMovingPlatform* platform = moving_platforms.back().get();
+	game->add_moving_platform(platform);
+	game->add_map_movable(platform);
+	game->add_static_obj(platform);
+	game_map->add_obj(platform);
 }
 
 sea::GameMap* ConsoleUIFactory::get_game_map(const int height, const int width) {
