@@ -19,11 +19,22 @@ sea::GameLevel* SecondLevel::get_next() {
 // ----------------------------------------------------------------------------
 void SecondLevel::init_data() {
 	ui_factory->create_mario({39, 10}, 3, 3);
-	
-	ui_factory->create_ship({20, 25}, 40, 2);
-	ui_factory->create_ship({60, 20}, 10, 7);
-	ui_factory->create_ship({80, 25}, 20, 2);
-	ui_factory->create_ship({120, 20}, 10, 7);
-	ui_factory->create_ship({150, 25}, 40, 2);
-	ui_factory->create_ship({210, 20}, 10, 7);
+
+	// Safe starting area and the first flying enemy.
+	ui_factory->create_ship({20, 25}, 55, 2);
+	ui_factory->create_ship({90, 25}, 55, 2);
+	ui_factory->create_flying_enemy({110, 22}, 3, 2, 15, 0.15f);
+
+	// A jumping enemy with room to wait on either side.
+	ui_factory->create_ship({160, 25}, 55, 2);
+	ui_factory->create_jumping_enemy({187, 23}, 3, 2);
+
+	// The sea gap requires a ride; the platform never overlaps either bank.
+	ui_factory->create_ship({230, 25}, 25, 2);
+	ui_factory->create_moving_platform({258, 25}, 12, 2, 55, 0.4f);
+	ui_factory->create_ship({328, 25}, 50, 2);
+	ui_factory->create_flying_enemy({350, 22}, 3, 2, 12, 0.15f);
+
+	// Keep the finish last: Game uses the last static object as the exit.
+	ui_factory->create_ship({395, 20}, 30, 7);
 }
