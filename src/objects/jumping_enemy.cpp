@@ -9,6 +9,7 @@ void JumpingEnemy::move_horizontally() noexcept {}
 
 void JumpingEnemy::move_vertically() noexcept {
 	if (!is_active()) {
+		Movable::move_vertically();
 		return;
 	}
 	if (support && get_right() > support->get_left()

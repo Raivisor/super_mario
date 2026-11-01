@@ -20,6 +20,7 @@ FlyingEnemy::FlyingEnemy(
 void FlyingEnemy::move_horizontally() noexcept {
 	last_step = 0;
 	if (!is_active()) {
+		Movable::move_horizontally();
 		return;
 	}
 	const float next_distance = std::max(0.0f,
@@ -33,6 +34,10 @@ void FlyingEnemy::move_horizontally() noexcept {
 }
 
 void FlyingEnemy::move_vertically() noexcept {
+	if (!is_active()) {
+		Movable::move_vertically();
+		return;
+	}
 	vspeed = 0;
 }
 

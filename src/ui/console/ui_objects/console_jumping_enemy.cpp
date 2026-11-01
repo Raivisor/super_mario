@@ -11,5 +11,5 @@ char ConsoleJumpingEnemy::get_brush() const noexcept {
 }
 
 bool ConsoleJumpingEnemy::is_visible() const noexcept {
-	return is_active();
+	return true;
 }
